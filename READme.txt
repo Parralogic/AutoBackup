@@ -13,5 +13,8 @@ Ex:
 in terminal after running the script ./usb-backup.sh 
 create a cron job with root/sudo
  
-sudo crontab -e
-00 11,16 * * * /home/username/directoryname/AutoBackup/usb-backup.sh
+sudo crontab -e <<This command might ask you to select a text editor select nano
+00 11,16 * * * /home/username/directoryname/AutoBackup/usb-backup.sh << add this line to the end of the file with YOUR info, modify it to YOUR liking. save and exit
+                                                                        dont put a # in front of the command like so
+                                                                        #00 11,16 * * * /home/username/directoryname/AutoBackup/usb-backup.sh
+                                                                        00 11,16 * * * /home/username/directoryname/AutoBackup/usb-backup.sh <<just like this
