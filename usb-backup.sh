@@ -3,7 +3,7 @@
 #Date: 02/27/2021
 #Last Modified: 02/28/2021
 clear
-
+cd $HOME/Scripts/AutoBackup
 DRIVE=$(cat USB-INFO | cut -d '"' -f 2)
 ID=$(cat USB-INFO | cut -d " " -f 2)
 DRIVEBD=$(cat USB-INFO | cut -d " " -f 3)

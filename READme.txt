@@ -3,6 +3,8 @@ that is formatted to ntfs. It just makes sense, in my opinion to format
 an external drive to ntfs to be more versatile, it is practical.
 
 NOTE!: Do not delete the created "USB-INFO" file, unless your going to use a different drive
+Please edit the script and change the 6th line of the script to represent your path of this directory,
+for the script to function correctly to obtain the info from the file created "USB-INFO"
 This script is to only backup a single "directory/s" to
 a specific(UUID) external drive only, and have a cron job run every * * * * *
 to your liking. "It is sorta meant to be set it and forget it philosophy" 
