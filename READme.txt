@@ -14,7 +14,7 @@ More info can be found below.
 https://www.thegeekstuff.com/2009/06/15-practical-crontab-examples/
 
 Ex:
-in terminal after running the script ./usb-backup.sh 
+in terminal after running the script [sudo ./usb-backup.sh] 
 create a cron job with root/sudo
 **Needs to be executed as a root/sudo user because of the mount command and blkid command
  
