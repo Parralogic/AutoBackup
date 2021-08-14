@@ -25,8 +25,11 @@ sudo crontab -e <<This command might ask you to select a text editor select nano
                                                                         00 11,16 * * * /home/username/directoryname/AutoBackup/usb-backup.sh <<just like this
                      
 08/14/2021 TIPS:
+Check status of cronie/crond if its running; in terminal execute: systemctl status cronie or systemctl status crond
+If not enabled, enable cronie by executing: systemctl enable cronie or systemctl enable crond. Once enabled best to restart pc, just to make sure its enabled.
 REMEMBER! change the 6th line in the script to represent the path of this directory corresponding to your system!.
 FYI, While the cron job is running in the background, and you happen to accidentally change a document and saved it, but those
 changes are too much, remember you do have a backup on the drive! remove/unplug the drive immediately! because if you dont it will update the file
-on the drive! with the changes YOU accidentally made, that you dont want. You will get an annoying pop-up because the drive is not connected 
-so just edit the cron tab of sudo and now you can add a "#" to the beginning of the command
+on the drive! with the changes YOU accidentally made, that you dont want. Make sure you know how often the cron job will execute the script! 
+also try running the script by itself sudo ./usb-backup.sh to make sure you have the right drive for the backup!, You will get a pop-up message alerting you
+to insert the correct drive, once the correct drive for the backup has been inserted the message will terminate.
