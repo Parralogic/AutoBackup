@@ -1,7 +1,7 @@
 #!/bin/bash
 #Creator: David Parra-Sandoval                                                                                                                                                                     
 #Date: 02/27/2021
-#Last Modified: 02/28/2021
+#Last Modified: 08/13/2021
 clear
 cd $HOME/Scripts/AutoBackup
 DRIVE=$(cat USB-INFO | cut -d '"' -f 2)
@@ -17,6 +17,7 @@ sudo mount /dev/$MOUNT /mnt
 sudo cp -rvu $BD/* /mnt && clear
 exit 0
 else
+xmessage -nearmouse "Please insert correct drive with UUID of $ID, $BD will not be BACKED UP!"
 echo -e "\e[91mUUID of drive don't match!"
 echo "Please insert correct drive with UUID of $ID"
 sleep 6; clear
@@ -76,6 +77,7 @@ if [[ $(blkid | grep "$DRIVE" | cut -d " " -f 4) = $ID ]]; then
 sudo cp -rvu $BD /mnt/$DRIVEBD && clear
 break
 else
+xmessage -nearmouse "Please insert correct drive with UUID of $ID, $BD will not be BACKED UP!"
 echo -e "\e[91mUUID of drive don't match!"
 echo "Please insert correct drive with UUID of $ID"
 sleep 6; clear
