@@ -1,6 +1,8 @@
 This script will autobackup a "directory/s" to an external drive
 that is formatted to ntfs. It just makes sense, in my opinion to format 
 an external drive to ntfs to be more versatile, it is practical.
+Please insert the drive that is going to be used to backup first, then run script.
+****Do not mount the drive or auto-mount the drive!
 
 NOTE!: Do not delete the created "USB-INFO" file, unless you're going to use a different drive.
 Please edit the script and change the 6th line of the script to represent your path of this directory,
@@ -14,6 +16,7 @@ https://www.thegeekstuff.com/2009/06/15-practical-crontab-examples/
 Ex:
 in terminal after running the script ./usb-backup.sh 
 create a cron job with root/sudo
+**Needs to be executed as a root/sudo user because of the mount command and blkid command
  
 sudo crontab -e <<This command might ask you to select a text editor select nano
 00 11,16 * * * /home/username/directoryname/AutoBackup/usb-backup.sh << add this line to the end of the file with YOUR info, modify it to YOUR liking. save and exit
