@@ -17,10 +17,11 @@ sudo mount /dev/$MOUNT /mnt
 sudo cp -rvu $BD/* /mnt && clear
 exit 0
 else
-xmessage -nearmouse "Please insert correct drive with UUID of $ID, $BD will not be BACKED UP!"
+xmessage -nearmouse "Please insert correct drive with UUID of $ID, $BD will not be BACKED UP!" &
 echo -e "\e[91mUUID of drive don't match!"
 echo "Please insert correct drive with UUID of $ID"
 sleep 6; clear
+kill $!
 fi
 done
 
@@ -77,10 +78,11 @@ if [[ $(blkid | grep "$DRIVE" | cut -d " " -f 4) = $ID ]]; then
 sudo cp -rvu $BD /mnt/$DRIVEBD && clear
 break
 else
-xmessage -nearmouse "Please insert correct drive with UUID of $ID, $BD will not be BACKED UP!"
+xmessage -nearmouse "Please insert correct drive with UUID of $ID, $BD will not be BACKED UP!" &
 echo -e "\e[91mUUID of drive don't match!"
 echo "Please insert correct drive with UUID of $ID"
 sleep 6; clear
+kill $!
 fi
 done
 fi
