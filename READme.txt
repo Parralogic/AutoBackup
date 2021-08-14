@@ -23,3 +23,10 @@ sudo crontab -e <<This command might ask you to select a text editor select nano
                                                                         dont put a # in front of the command like so
                                                                         #00 11,16 * * * /home/username/directoryname/AutoBackup/usb-backup.sh
                                                                         00 11,16 * * * /home/username/directoryname/AutoBackup/usb-backup.sh <<just like this
+                     
+08/14/2021 TIPS:
+REMEMBER! change the 6th line in the script to represent the path of this directory corresponding to your system!.
+FYI, While the cron job is running in the background, and you happen to accidentally change a document and saved it, but those
+changes are too much, remember you do have a backup on the drive! remove/unplug the drive immediately! because if you dont it will update the file
+on the drive! with the changes YOU accidentally made, that you dont want. You will get an annoying pop-up because the drive is not connected 
+so just edit the cron tab of sudo and now you can add a "#" to the beginning of the command
