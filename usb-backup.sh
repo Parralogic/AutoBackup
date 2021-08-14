@@ -45,7 +45,7 @@ y|Y ) echo -e "\e[91m$USBDRIVE will be mounted to the mnt directory\e[00m"
 sudo mount /dev/$USBDRIVE /mnt
 sleep 2
 USBID=$(blkid | grep "$USBDRIVE" | cut -d " " -f 4)
-LABEL=$(blkid | grep sdb | cut -d " " -f 2)
+LABEL=$(blkid | grep "$USBDRIVE" | cut -d " " -f 2)
 cd /mnt
 clear
 ls
