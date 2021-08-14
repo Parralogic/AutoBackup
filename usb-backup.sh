@@ -1,7 +1,7 @@
 #!/bin/bash
 #Creator: David Parra-Sandoval                                                                                                                                                                     
 #Date: 02/27/2021
-#Last Modified: 08/13/2021
+#Last Modified: 08/14/2021
 clear
 cd /home/david/Git/AutoBackup/
 DRIVE=$(cat USB-INFO | cut -d '"' -f 2)
