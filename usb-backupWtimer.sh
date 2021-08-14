@@ -19,7 +19,7 @@ MOUNTDRIVE=$(blkid | grep $DRIVE | cut -d " " -f 1 | cut -d ":" -f 1)
  root () {
  while true; do
 sudo mount $MOUNTDRIVE /mnt
- if [[ $(blkid | grep "$DRIVE" | cut -d " " -f 4) = $ID ]]; then
+ if [[ $(blkid | grep "$DRIVE" | cut -d " " -f 4) = $ID ]]; then          #Debian/Ubuntu Distro change the 4 to 3
 sudo cp -rvu $BD/* /mnt && clear
 exit 0
 else
@@ -47,7 +47,7 @@ case $YESNO in
 y|Y ) echo -e "\e[91m$USBDRIVE will be mounted to the mnt directory\e[00m"
 sudo mount /dev/$USBDRIVE /mnt
 sleep 2
-USBID=$(blkid | grep "$USBDRIVE" | cut -d " " -f 4)
+USBID=$(blkid | grep "$USBDRIVE" | cut -d " " -f 4)   #Debian/Ubuntu Distro change 4 to 3
 LABEL=$(blkid | grep "$USBDRIVE" | cut -d " " -f 2)
 cd /mnt
 clear
@@ -84,7 +84,7 @@ root
 fi
 sudo mount $MOUNTDRIVE /mnt
 while true; do
-if [[ $(blkid | grep "$DRIVE" | cut -d " " -f 4) = $ID ]]; then
+if [[ $(blkid | grep "$DRIVE" | cut -d " " -f 4) = $ID ]]; then          #Debian/Ubuntu Distro change the 4 to 3
 sudo cp -rvu $BD /mnt/$DRIVEBD && clear
 break
 else
