@@ -33,3 +33,6 @@ changes are too much, remember you do have a backup on the drive! remove/unplug 
 on the drive! with the changes YOU accidentally made, that you dont want. Make sure you know how often the cron job will execute the script! 
 also try running the script by itself sudo ./usb-backup.sh to make sure you have the right drive for the backup!, You will get a pop-up message alerting you
 to insert the correct drive, once the correct drive for the backup has been inserted the message will terminate.
+
+IF you don't wanna worry about setting up a cron job, just run the usb-backupWtimer.sh script it has a built in timer, just edit the script, change the 6th line, scroll to the bottom and change the sleep count to however many seconds the script should re-execute. just dont close the terminal, NOTE! if using this method script will ONLY! backup to a NEWdirectory not to the root of the drive!. If you set the sleep count to 600 it would re-execute the script every 10 minutes 60x10=600.
+make usb-backupWtimer.sh executable [chmod +x usb-backupWtimer.sh] in terminal. REMEMBER! dont close the terminal, just minimze the terminal, to make sure its working just unplug the drive, and wait to see if you get a pop-up asking to insert the drive.
