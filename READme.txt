@@ -35,6 +35,8 @@ also try running the script by itself sudo ./usb-backup.sh to make sure you have
 to insert the correct drive, once the correct drive for the backup has been inserted the message will terminate.
 
 IF you don't wanna worry about setting up a cron job, just run the usb-backupWtimer.sh script it has a built in timer, just edit the script, change the 6th line, scroll to the bottom and change the sleep count to however many seconds the script should re-execute. just dont close the terminal, NOTE! if using this method script will ONLY! backup to a NEWdirectory not to the root of the drive!. If you set the sleep count to 600 it would re-execute the script every 10 minutes 60x10=600.
-make usb-backupWtimer.sh executable [chmod +x usb-backupWtimer.sh] in terminal. REMEMBER! dont close the terminal, just minimze the terminal, to make sure its working just unplug the drive, and wait to see if you get a pop-up asking to insert the drive.
+make usb-backupWtimer.sh executable [chmod +x usb-backupWtimer.sh] in terminal. REMEMBER! dont close the terminal, just minimize the terminal, to make sure its working just unplug{not recommended}/safely unmount/safely remove the drive, and wait to see if you get a pop-up asking to insert the drive.
+DON'T close the terminal! Only when you know that everything has been backed up and you no longer need the script to run in the "background". And YES!
+remember the seconds/min YOU inputted, because, again if you make a change that you don't want it will update the file on the drive!
 
-NOTE!: IF you delete a file on the directory you are backing up the file will not be deleted on the drive!
+NOTE!: IF you delete a file on the directory you are backing up, the file will not be deleted on the drive!, IF it had already been backed UP.
