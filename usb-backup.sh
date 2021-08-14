@@ -38,11 +38,11 @@ read -p "Only input sda{1..3}, sdb{1..3}, sdc{1..3}.... etc: " USBDRIVE
 read -p "$USBDRIVE will be used:? [y/n] " YESNO
 done
 case $YESNO in
-y|Y ) USBID=$(blkid | grep "$USBDRIVE" | cut -d " " -f 4)
-LABEL=$(blkid | grep sdb | cut -d " " -f 2)
-echo -e "\e[91m$USBDRIVE will be mounted to the mnt directory\e[00m"
+y|Y ) echo -e "\e[91m$USBDRIVE will be mounted to the mnt directory\e[00m"
 sudo mount /dev/$USBDRIVE /mnt
 sleep 2
+USBID=$(blkid | grep "$USBDRIVE" | cut -d " " -f 4)
+LABEL=$(blkid | grep sdb | cut -d " " -f 2)
 cd /mnt
 clear
 ls
