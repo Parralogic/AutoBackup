@@ -4,6 +4,10 @@
 #Last Modified: 08/14/2021
 clear
 cd /home/david/Git/AutoBackup/
+if [[ ${UID} != 0 ]]; then
+echo "Please run as root/sudo!"
+exit 1
+fi
 DRIVE=$(cat USB-INFO | cut -d '"' -f 2)
 NAME=$(cat USB-INFO | cut -d " " -f 1)
 ID=$(cat USB-INFO | cut -d " " -f 2)
