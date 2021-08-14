@@ -3,21 +3,23 @@
 #Date: 02/27/2021
 #Last Modified: 08/13/2021
 clear
-cd $HOME/Scripts/AutoBackup
+cd /home/david/Git/AutoBackup/
 DRIVE=$(cat USB-INFO | cut -d '"' -f 2)
+NAME=$(cat USB-INFO | cut -d " " -f 1)
 ID=$(cat USB-INFO | cut -d " " -f 2)
 DRIVEBD=$(cat USB-INFO | cut -d " " -f 3)
 BD=$(cat USB-INFO | cut -d " " -f 4)
-MOUNT=$(blkid | grep $DRIVE | cut -d "/" -f3 | cut -d ":" -f 1)
- 
+#MOUNT=$(blkid | grep $DRIVE | cut -d "/" -f3 | cut -d ":" -f 1)
+MOUNTDRIVE=$(blkid | grep $DRIVE | cut -d " " -f 1 | cut -d ":" -f 1)
  root () {
  while true; do
-sudo mount /dev/$MOUNT /mnt
+#MOUNTDRIVE=$(blkid | grep $DRIVE | cut -d " " -f 1 | cut -d ":" -f 1)
+sudo mount $MOUNTDRIVE /mnt
  if [[ $(blkid | grep "$DRIVE" | cut -d " " -f 4) = $ID ]]; then
 sudo cp -rvu $BD/* /mnt && clear
 exit 0
 else
-xmessage -nearmouse "Please insert correct drive with UUID of $ID, $BD will not be BACKED UP!" &
+xmessage -nearmouse "Please insert correct drive with $ID : $NAME, $BD will not be BACKED UP!" &
 echo -e "\e[91mUUID of drive don't match!"
 echo "Please insert correct drive with UUID of $ID"
 sleep 6; clear
@@ -37,8 +39,10 @@ read -p "$USBDRIVE will be used:? [y/n] " YESNO
 done
 case $YESNO in
 y|Y ) USBID=$(blkid | grep "$USBDRIVE" | cut -d " " -f 4)
+LABEL=$(blkid | grep sdb | cut -d " " -f 2)
 echo -e "\e[91m$USBDRIVE will be mounted to the mnt directory\e[00m"
 sudo mount /dev/$USBDRIVE /mnt
+sleep 2
 cd /mnt
 clear
 ls
@@ -60,7 +64,7 @@ clear
 echo -e "\e[91mUse the full absolute path! Ex:/var/log or $HOME/backupdirectory\n\e[00m"
 read -p "What's the path of the directory containing the files to backup:? " BACKUPDIRECTORY
 read -p "[$BACKUPDIRECTORY] will be used:? [y/n] " BACKUP
-echo "$USBDRIVE $USBID $NEWDIRECTORY $BACKUPDIRECTORY" > USB-INFO
+echo "$LABEL $USBID $NEWDIRECTORY $BACKUPDIRECTORY" > USB-INFO
 done
 case $NEWDIRECTORY in
 root)
@@ -72,13 +76,13 @@ else
 if [[ $DRIVEBD = root ]]; then
 root
 fi
-sudo mount /dev/$MOUNT /mnt
+sudo mount $MOUNTDRIVE /mnt
 while true; do
 if [[ $(blkid | grep "$DRIVE" | cut -d " " -f 4) = $ID ]]; then
 sudo cp -rvu $BD /mnt/$DRIVEBD && clear
 break
 else
-xmessage -nearmouse "Please insert correct drive with UUID of $ID, $BD will not be BACKED UP!" &
+xmessage -nearmouse "Please insert correct drive with $ID : $NAME, $BD will not be BACKED UP!" &
 echo -e "\e[91mUUID of drive don't match!"
 echo "Please insert correct drive with UUID of $ID"
 sleep 6; clear
