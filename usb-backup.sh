@@ -13,7 +13,6 @@ BD=$(cat USB-INFO | cut -d " " -f 4)
 MOUNTDRIVE=$(blkid | grep $DRIVE | cut -d " " -f 1 | cut -d ":" -f 1)
  root () {
  while true; do
-#MOUNTDRIVE=$(blkid | grep $DRIVE | cut -d " " -f 1 | cut -d ":" -f 1)
 sudo mount $MOUNTDRIVE /mnt
  if [[ $(blkid | grep "$DRIVE" | cut -d " " -f 4) = $ID ]]; then
 sudo cp -rvu $BD/* /mnt && clear
