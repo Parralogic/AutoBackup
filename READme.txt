@@ -48,3 +48,6 @@ DON'T close the terminal! Only when you know that everything has been backed up 
 remember the seconds/min YOU inputted, because, again if you make a change that you don't want it will update the file on the drive!
 
 NOTE!: IF you delete a file on the directory you are backing up, the file will not be deleted on the drive!, IF it had already been backed UP.
+
+NOTE!: IF you need to backup different directories, simple just make a copy of the folder and name it whatever you want. Look at the created 
+"USB-INFO" or better copy it to the new renamed directory and change it manually. Or just use a different usb-drive. or just figure it out...
