@@ -37,8 +37,8 @@ changes are too much, remember you do have a backup on the drive! remove/unplug 
 on the drive! with the changes YOU accidentally made, that you dont want. Make sure you know how often the cron job will execute the script! 
 also try running the script by itself sudo ./usb-backup.sh to make sure you have the right drive for the backup!, You will get a pop-up message alerting you
 to insert the correct drive, once the correct drive for the backup has been inserted the message will terminate.
-After unplugin the usb-drive, if running a cron job, if you made a mistake,stop the cron job first with #
-or remove all the cron jobs like so in terminal sudo crontab -r, then plug in the usb-drive so you can recover your backup from the drive;
+After unplugin the usb-drive, if running a cron job, if you made a mistake,stop the cron job service in terminal systemctl stop cronie
+or edit the cron job in terminal sudo crontab -e, then plug in the usb-drive so you can recover your backup from the drive;
 Or just rename the file that was mistakenly saved so that it wont override the backup on the drive. But to be 100% safe just stop the cron job!
 after unpluging the usb-drive.
 
