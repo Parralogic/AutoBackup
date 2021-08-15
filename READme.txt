@@ -3,6 +3,8 @@ that is formatted to ntfs. It just makes sense, in my opinion to format
 an external drive to ntfs to be more versatile, it is practical.
 Please insert the drive that is going to be used to backup first, then run script.
 ****Do not mount the drive or auto-mount the drive!
+stop udisks2 if service is running, in terminal: systemctl stop udisks2
+#My setup is Arch linux with Kde Plasma 5. I did not need to stop that service. 
 
 NOTE!: Do not delete the created "USB-INFO" file, unless you're going to use a different drive.
 Please edit the script and change the 6th line of the script to represent your path of this directory,
