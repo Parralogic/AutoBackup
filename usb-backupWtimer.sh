@@ -1,7 +1,7 @@
 #!/bin/bash
 #Creator: David Parra-Sandoval                                                                                                                                                                     
 #Date: 02/27/2021
-#Last Modified: 08/14/2021
+#Last Modified: 08/16/2021
 clear
 cd /home/david/Git/AutoBackup/
 if [[ ${UID} != 0 ]]; then
@@ -35,7 +35,6 @@ done
 
 if [[ ! -e USB-INFO ]]; then
 
-
 until [[ $YESNO = [yY]* ]]; do
 clear
 echo -e "\e[92mWhat's the external USB drive to backup to:?\e[00m"
@@ -68,7 +67,8 @@ esac
 until [[ $BACKUP = [yY]* ]]; do
 clear
 echo -e "\e[91mUse the full absolute path! Ex:/var/log or $HOME/backupdirectory\n\e[00m"
-read -p "What's the path of the directory containing the files to backup:? " BACKUPDIRECTORY
+echo "What's the path of the directory containing the files to backup:?"
+read -p ": " BACKUPDIRECTORY
 read -p "[$BACKUPDIRECTORY] will be used:? [y/n] " BACKUP
 echo "$LABEL $USBID $NEWDIRECTORY $BACKUPDIRECTORY" > USB-INFO
 done
