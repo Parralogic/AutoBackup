@@ -82,10 +82,10 @@ else
 if [[ $DRIVEBD = root ]]; then
 root
 fi
-sudo mount $MOUNTDRIVE /mnt
+sudo mount $MOUNTDRIVE /mnt &> /dev/null
 while true; do
 if [[ $(blkid | grep "$DRIVE" | cut -d " " -f 4) = $ID ]]; then          #Debian/Ubuntu Distro change the 4 to 3
-sudo mount $MOUNTDRIVE /mnt || sudo cp -rvu $BD /mnt/$DRIVEBD
+sudo mount $MOUNTDRIVE /mnt &> /dev/null || sudo cp -rvu $BD /mnt/$DRIVEBD
 break
 else
 xmessage -nearmouse "Please insert correct drive with $ID : $NAME, $BD will not be BACKED UP!" &
