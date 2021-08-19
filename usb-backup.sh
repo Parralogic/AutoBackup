@@ -1,7 +1,7 @@
 #!/bin/bash
 #Creator: David Parra-Sandoval                                                                                                                                                                     
 #Date: 02/27/2021
-#Last Modified: 08/16/2021
+#Last Modified: 08/19/2021
 clear
 cd /home/david/Git/AutoBackup/
 if [[ ${UID} != 0 ]]; then
@@ -16,11 +16,11 @@ BD=$(cat USB-INFO | cut -d " " -f 4)
 #MOUNT=$(blkid | grep $DRIVE | cut -d "/" -f3 | cut -d ":" -f 1)
 MOUNTDRIVE=$(blkid | grep $DRIVE | cut -d " " -f 1 | cut -d ":" -f 1)
  root () {
- while true; do
+while true; do
 sudo mount $MOUNTDRIVE /mnt
- if [[ $(blkid | grep "$DRIVE" | cut -d " " -f 4) = $ID ]]; then          #Debian/Ubuntu Distro change the 4 to a 3
+if [[ $(blkid | grep "$DRIVE" | cut -d " " -f 4) = $ID ]]; then          #Debian/Ubuntu Distro change the 4 to a 3
 sudo cp -rvu $BD/* /mnt && clear
-exit 0
+break
 else
 xmessage -nearmouse "Please insert correct drive with $ID : $NAME, $BD will not be BACKED UP!" &
 echo -e "\e[91mUUID of drive don't match!"
@@ -80,10 +80,10 @@ else
 if [[ $DRIVEBD = root ]]; then
 root
 fi
-sudo mount $MOUNTDRIVE /mnt
+sudo mount $MOUNTDRIVE /mnt &> /dev/null
 while true; do
 if [[ $(blkid | grep "$DRIVE" | cut -d " " -f 4) = $ID ]]; then          #Debian/Ubuntu Change the 4 to a 3
-sudo cp -rvu $BD /mnt/$DRIVEBD && clear
+ls /mnt/$DRIVEBD && sudo cp -rvu $BD /mnt/$DRIVEBD && clear
 break
 else
 xmessage -nearmouse "Please insert correct drive with $ID : $NAME, $BD will not be BACKED UP!" &
@@ -94,3 +94,4 @@ kill $!
 fi
 done
 fi
+sudo mount $MOUNTDRIVE /mnt &> /dev/null
