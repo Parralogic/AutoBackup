@@ -1,4 +1,4 @@
-UPDATE! 08/18/2021
+UPDATE! 08/18/2021 #usb-backupWtimer.sh
 Known issue bug!, if the usb is removed then plugged in, script also copies the backup to the actual mnt directory! 
 best not to unplug the drive unless an emergency to recover a file!... also check the mnt directory after removing the usb drive just to make sure!
 
