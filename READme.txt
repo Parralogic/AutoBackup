@@ -59,5 +59,5 @@ NOTE!: IF you need to backup different directories, simple just make a copy of t
 TIP:08/19/2021
 If you have a cron job running and you set the cron job to backup your files at 10:00AM only on monday, you can still
 execute the usb-backupWtimer.sh script to backup files every sec/min in the background and not wait till monday for the cron job to execute.
-If that makes sense? So if you're writing an essay, just edit the usb-backupWtimer.sh, sleep count and execute the script.
+If that makes sense? So if you're writing an essay, just edit the usb-backupWtimer.sh, sleep count & 6th line and execute the script.
 https://crontab.tech/   #check this site out!
