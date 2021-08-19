@@ -1,3 +1,7 @@
+UPDATE! 08/18/2021
+Known issue bug!, if the usb is removed then plugged in, script also copies the backup to the actual mnt directory! 
+best not to unplug the drive unless an emergency to recover a file!... also check the mnt directory after removing the usb drive just to make sure!
+
 This script will autobackup a "directory/s" to an external drive
 that is formatted to ntfs. It just makes sense, in my opinion to format 
 an external drive to ntfs to be more versatile, it is practical.
