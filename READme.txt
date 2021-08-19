@@ -55,3 +55,9 @@ NOTE!: IF you delete a file on the directory you are backing up, the file will n
 
 NOTE!: IF you need to backup different directories, simple just make a copy of the folder and name it whatever you want. Look at the created 
 "USB-INFO" or better copy it to the new renamed directory and change it manually and 6th line. Or just use a different usb-drive. or just figure it out...
+
+TIP:08/19/2021
+If you have a cron job running and you set the cron job to backup your files at 10:00AM only on monday, you can still
+execute the usb-backupWtimer.sh script to backup files every sec/min in the background and not wait till monday for the cron job to execute.
+If that makes sense? So if you're writing an essay, just edit the usb-backupWtimer.sh, sleep count and execute the script.
+https://crontab.tech/   #check this site out!
