@@ -1,7 +1,7 @@
 #!/bin/bash
 #Creator: David Parra-Sandoval                                                                                                                                                                     
 #Date: 02/27/2021
-#Last Modified: 08/16/2021
+#Last Modified: 08/18/2021
 clear
 cd /home/david/Git/AutoBackup/
 if [[ ${UID} != 0 ]]; then
@@ -85,7 +85,7 @@ fi
 sudo mount $MOUNTDRIVE /mnt
 while true; do
 if [[ $(blkid | grep "$DRIVE" | cut -d " " -f 4) = $ID ]]; then          #Debian/Ubuntu Distro change the 4 to 3
-sudo cp -rvu $BD /mnt/$DRIVEBD && clear
+sudo mount $MOUNTDRIVE /mnt || sudo cp -rvu $BD /mnt/$DRIVEBD
 break
 else
 xmessage -nearmouse "Please insert correct drive with $ID : $NAME, $BD will not be BACKED UP!" &
