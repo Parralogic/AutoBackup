@@ -1,7 +1,7 @@
 #!/bin/bash
 #Creator: David Parra-Sandoval                                                                                                                                                                     
 #Date: 02/27/2021
-#Last Modified: 08/19/2021
+#Last Modified: 11/07/2023
 clear
 cd /home/david/Git/AutoBackup/
 if [[ ${UID} != 0 ]]; then
@@ -16,21 +16,26 @@ BD=$(cat USB-INFO | cut -d " " -f 4)
 #MOUNT=$(blkid | grep $DRIVE | cut -d "/" -f3 | cut -d ":" -f 1)
 MOUNTDRIVE=$(blkid | grep $DRIVE | cut -d " " -f 1 | cut -d ":" -f 1)
  root () {
-while true; do
-sudo mount $MOUNTDRIVE /mnt
+ while true; do
+if [[ -z $(ls /mnt) ]]; then
+sudo mount $MOUNTDRIVE /mnt &> /dev/null
+else
+echo "Not Empty"
+fi
+#sudo mount $MOUNTDRIVE /mnt
 if [[ $(blkid | grep "$DRIVE" | cut -d " " -f 4) = $ID ]]; then          #Debian/Ubuntu Distro change the 4 to a 3
-sudo cp -rvu $BD/* /mnt && clear
+sudo cp -rvup $BD/* /mnt && clear
 break
 else
-xmessage -nearmouse "Please insert correct drive with $ID : $NAME, $BD will not be BACKED UP!" &
+xmessage -nearmouse "Please insert correct drive with $ID : $NAME, AND re-execute the script! $BD will not be BACKED UP!" &
 echo -e "\e[91mUUID of drive don't match!"
 echo "Please insert correct drive with UUID of $ID"
 sleep 6; clear
 kill $!
 fi
 done
+}
 
- }
 if [[ ! -e USB-INFO ]]; then
 
 until [[ $YESNO = [yY]* ]]; do
@@ -72,21 +77,28 @@ echo "$LABEL $USBID $NEWDIRECTORY $BACKUPDIRECTORY" > USB-INFO
 done
 case $NEWDIRECTORY in
 root)
-sudo cp -rvu $BACKUPDIRECTORY/* /mnt && clear;;
+sudo cp -rvup $BACKUPDIRECTORY/* /mnt && clear;;
 *)
-sudo cp -rvu $BACKUPDIRECTORY /mnt/$NEWDIRECTORY && clear ;;
+sudo cp -rvup $BACKUPDIRECTORY /mnt/$NEWDIRECTORY && clear ;;
 esac
 else
 if [[ $DRIVEBD = root ]]; then
 root
 fi
+
+if [[ -z $(ls /mnt) ]]; then
 sudo mount $MOUNTDRIVE /mnt &> /dev/null
+else
+echo "Not Empty"
+fi
+#sudo mount $MOUNTDRIVE /mnt &> /dev/null
+
 while true; do
 if [[ $(blkid | grep "$DRIVE" | cut -d " " -f 4) = $ID ]]; then          #Debian/Ubuntu Change the 4 to a 3
-ls /mnt/$DRIVEBD && sudo cp -rvu $BD /mnt/$DRIVEBD && clear
+ls /mnt/$DRIVEBD && sudo cp -rvup $BD /mnt/$DRIVEBD && clear
 break
 else
-xmessage -nearmouse "Please insert correct drive with $ID : $NAME, $BD will not be BACKED UP!" &
+xmessage -nearmouse "Please insert correct drive with $ID : $NAME, AND re-execute the script! $BD will not be BACKED UP!" &
 echo -e "\e[91mUUID of drive don't match!"
 echo "Please insert correct drive with UUID of $ID"
 sleep 6; clear
@@ -94,4 +106,9 @@ kill $!
 fi
 done
 fi
+
+if [[ -z $(ls /mnt) ]]; then
 sudo mount $MOUNTDRIVE /mnt &> /dev/null
+else
+echo "Not Empty"
+fi

@@ -1,6 +1,6 @@
-UPDATE! 08/18/2021 #usb-backupWtimer.sh
-Known issue bug!, if the usb is removed then plugged in, script also copies the backup to the actual mnt directory! 
-best not to unplug the drive unless an emergency to recover a file!... also check the mnt directory after removing the usb drive just to make sure!
+UPDATE! 11/07/2023
+Changed the Autobackup scripts to NOT remount the drive after it's already mounted!
+because Iv checked the mounted drive using lsblk and it was mounted manytimes. Good and Bad at the same time.
 
 This script will autobackup a "directory/s" to an external drive
 that is formatted to ntfs. It just makes sense, in my opinion to format 
@@ -55,9 +55,3 @@ NOTE!: IF you delete a file on the directory you are backing up, the file will n
 
 NOTE!: IF you need to backup different directories, simple just make a copy of the folder and name it whatever you want. Look at the created 
 "USB-INFO" or better copy it to the new renamed directory and change it manually and 6th line. Or just use a different usb-drive. or just figure it out...
-
-TIP:08/19/2021
-If you have a cron job running and you set the cron job to backup your files at 10:00AM only on monday, you can still
-execute the usb-backupWtimer.sh script to backup files every sec/min in the background and not wait till monday for the cron job to execute.
-If that makes sense? So if you're writing an essay, just edit the usb-backupWtimer.sh, sleep count & 6th line and execute the script.
-https://crontab.tech/   #check this site out!
