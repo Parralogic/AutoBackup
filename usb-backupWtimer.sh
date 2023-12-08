@@ -1,7 +1,7 @@
 #!/bin/bash
 #Creator: David Parra-Sandoval                                                                                                                                                                     
 #Date: 02/27/2021
-#Last Modified: 11/07/2023
+#Last Modified: 12/07/2023
 clear
 cd /home/david/Git/AutoBackup/
 if [[ ${UID} != 0 ]]; then
