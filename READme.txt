@@ -1,4 +1,4 @@
-UPDATE! 11/07/2023
+UPDATE! 12/07/2023 #YES got the Date wrong
 Changed the Autobackup scripts to NOT remount the drive after it's already mounted!
 because Iv checked the mounted drive using lsblk and it was mounted manytimes. Good and Bad at the same time.
 
